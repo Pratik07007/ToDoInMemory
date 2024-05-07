@@ -10,7 +10,7 @@ const Header = () => {
       <div>
         <a
           className="text-3xl font-mono bg-blue-700 px-3 py-3 rounded-3xl"
-          href=""
+          href="https://github.com/Pratik07007/ToDoInMemory"
         >
           Source Code
         </a>
