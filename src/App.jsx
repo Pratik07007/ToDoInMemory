@@ -1,35 +1,82 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import ToDos from "./Components/ToDos";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
+  const allTodos = [
+    {
+      title: "Learn ML",
+      desc: "Learn ML from WLV resources provided in canvas",
+      isCompleted: false,
+    },
+    {
+      title: "Learn ML",
+      desc: "Learn ML from WLV resources provided in canvas",
+      isCompleted: false,
+    },
+    {
+      title: "Learn AI",
+      desc: "Learn ML from WLV resources provided in canvas",
+      isCompleted: false,
+    },
+    {
+      title: "Learn React",
+      desc: "Learn ML from WLV resources provided in canvas",
+      isCompleted: true,
+    },
+    {
+      title: "Learn ML",
+      desc: "Learn ML from WLV resources provided in canvas",
+      isCompleted: false,
+    },
+    {
+      title: "Learn ML",
+      desc: "Learn ML from WLV resources provided in canvas",
+      isCompleted: false,
+    },
+    {
+      title: "Learn AI",
+      desc: "Learn ML from WLV resources provided in canvas",
+      isCompleted: false,
+    },
+    {
+      title: "Learn React",
+      desc: "Learn ML from WLV resources provided in canvas",
+      isCompleted: true,
+    },
+    {
+      title: "Learn ML",
+      desc: "Learn ML from WLV resources provided in canvas",
+      isCompleted: false,
+    },
+    {
+      title: "Learn ML",
+      desc: "Learn ML from WLV resources provided in canvas",
+      isCompleted: false,
+    },
+    {
+      title: "Learn AI",
+      desc: "Learn ML from WLV resources provided in canvas",
+      isCompleted: false,
+    },
+    {
+      title: "Learn React",
+      desc: "Learn ML from WLV resources provided in canvas",
+      isCompleted: true,
+    },
+  ];
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <Header />
+      <div className=" flex flex-col gap-5 items-center justify-center py-48 bg-[#443730] min-h-[80vh]">
+        {allTodos.map((todos, index) => {
+          return <ToDos key={index} todos={todos} />;
+        })}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
