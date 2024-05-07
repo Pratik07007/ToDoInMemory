@@ -9,80 +9,37 @@ const App = () => {
       title: "Learn ML",
       desc: "Learn ML from WLV resources provided in canvas",
       isCompleted: false,
+      id: 1,
     },
     {
       title: "Learn ML",
       desc: "Learn ML from WLV resources provided in canvas",
       isCompleted: false,
+      id: 2,
     },
     {
-      title: "Learn AI",
-      desc: "Learn ML from WLV resources provided in canvas",
-      isCompleted: false,
-    },
-    {
-      title: "Learn React",
+      title: "Learn ML",
       desc: "Learn ML from WLV resources provided in canvas",
       isCompleted: true,
-    },
-    {
-      title: "Learn ML",
-      desc: "Learn ML from WLV resources provided in canvas",
-      isCompleted: false,
-    },
-    {
-      title: "Learn ML",
-      desc: "Learn ML from WLV resources provided in canvas",
-      isCompleted: false,
-    },
-    {
-      title: "Learn AI",
-      desc: "Learn ML from WLV resources provided in canvas",
-      isCompleted: false,
-    },
-    {
-      title: "Learn React",
-      desc: "Learn ML from WLV resources provided in canvas",
-      isCompleted: true,
-    },
-    {
-      title: "Learn ML",
-      desc: "Learn ML from WLV resources provided in canvas",
-      isCompleted: false,
-    },
-    {
-      title: "Learn ML",
-      desc: "Learn ML from WLV resources provided in canvas",
-      isCompleted: false,
-    },
-    {
-      title: "Learn AI",
-      desc: "Learn ML from WLV resources provided in canvas",
-      isCompleted: false,
-    },
-    {
-      title: "Learn React",
-      desc: "Learn ML from WLV resources provided in canvas",
-      isCompleted: true,
+      id: 3,
     },
   ];
   const [allTodos, setAllTodos] = useState(tods);
   const [todo, setToDo] = useState({ isCompleted: false });
-  console.log(todo);
+  // console.log(todo);
   const addTodo = (e) => {
     e.preventDefault();
-    setAllTodos([...allTodos, todo]);
-    setToDo({ title: "", desc: "", isCompleted: false });
+    setAllTodos([todo, ...allTodos]);
   };
   return (
     <>
       <Header />
-      <div className=" flex flex-col gap-5 items-center justify-center py-48 bg-[#443730] min-h-[80vh]">
+      <div className=" flex flex-col gap-5 items-center justify-center py-48 bg-[#443730] min-h-[90vh]">
         <div>
           <form onSubmit={addTodo}>
             <input
               onChange={(e) => {
-                setToDo({ ...todo, title: e.target.value });
+                setToDo({ ...todo, title: e.target.value, id: Date.now() });
               }}
               className="outline-none w-96 h-10 text-black text-2xl  px-5"
               type="text"
@@ -105,8 +62,8 @@ const App = () => {
             </button>
           </form>
         </div>
-        {allTodos.map((todos, index) => {
-          return <ToDos key={index} todos={todos} />;
+        {allTodos.map((todos) => {
+          return <ToDos key={todos.id} todos={todos} />;
         })}
       </div>
       <Footer />
